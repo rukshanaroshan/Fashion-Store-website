@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOGUE | Modern Fashion Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --primary-color: #111111;
+      --accent-color: #A38A5F;
+      --bg-light: #F9F9F9;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--primary-color);
+      overflow-x: hidden;
+    }
+
+    /* Typography Accent */
+    .display-serif {
+      font-family: var(--font-display);
+    }
+
+    /* Navbar Customization */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .nav-link {
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--primary-color) !important;
+    }
+    .nav-link:hover {
+      color: var(--accent-color) !important;
+    }
+
+    /* Hero Carousel Carousel */
+    .hero-slider .carousel-item {
+      height: 80svh;
+      min-height: 450px;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(0,0,0,0.5) 30%, transparent 100%);
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .btn-custom {
+      background-color: var(--primary-color);
+      color: white;
+      border: 1px solid var(--primary-color);
+      border-radius: 0;
+      padding: 0.75rem 2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background-color: transparent;
+      color: var(--primary-color);
+    }
+    .btn-light-custom {
+      background-color: white;
+      color: var(--primary-color);
+      border-radius: 0;
+      padding: 0.75rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-light-custom:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    /* Category Cards */
+    .category-box {
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+    }
+    .category-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .category-box:hover img {
+      transform: scale(1.06);
+    }
+    .category-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: white;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Product Cards */
+    .product-card {
+      border: none;
+      background: transparent;
+    }
+    .product-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-light);
+    }
+    .product-img-wrapper img {
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img-wrapper img {
+      transform: scale(1.04);
+    }
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--accent-color);
+      color: white;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      text-transform: uppercase;
+    }
+    .product-actions {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding-bottom: 15px;
+      transition: bottom 0.3s ease;
+    }
+    .product-card:hover .product-actions {
+      bottom: 0;
+    }
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      background: white;
+      color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Promo Banner */
+    .promo-banner {
+      background-color: var(--bg-light);
+      padding: 5rem 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    footer h5 {
+      color: white;
+      font-family: var(--font-display);
+      margin-bottom: 1.5rem;
+    }
+    footer a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-dark text-white text-center py-2 small fw-light" style="letter-spacing: 1px;">
+    COMPLIMENTARY SHIPPING ON ALL SRI LANKAN ORDERS OVER LKR 10,000
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fs-3" href="#">VOGUE</a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item px-2"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#categories">Shop</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#trending">New Arrivals</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#promo">Lookbook</a></li>
+        </ul>
+        
+        <div class="d-flex justify-content-center gap-4 mt-3 mt-lg-0">
+          <a href="#" class="text-dark position-relative"><i class="bi bi-search fs-5"></i></a>
+          <a href="#" class="text-dark position-relative"><i class="bi bi-heart fs-5"></i></a>
+          <a href="#" class="text-dark position-relative">
+            <i class="bi bi-bag fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark small" style="font-size: 0.65rem;">2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div id="heroSlider" class="carousel slide hero-slider" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop');">
+        <div class="hero-overlay">
+          <div class="container text-white">
+            <div class="col-md-7 col-lg-5 ps-3">
+              <p class="text-uppercase tracking-wider mb-2" style="letter-spacing: 3px;">Summer Collection</p>
+              <h1 class="display-3 display-serif mb-4">Effortless Minimalism</h1>
+              <a href="#trending" class="btn btn-light-custom">Explore Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1600&auto=format&fit=crop');">
+        <div class="hero-overlay">
+          <div class="container text-white">
+            <div class="col-md-7 col-lg-5 ps-3">
+              <p class="text-uppercase tracking-wider mb-2" style="letter-spacing: 3px;">Exclusive Release</p>
+              <h1 class="display-3 display-serif mb-4">The Art of Tailoring</h1>
+              <a href="#categories" class="btn btn-light-custom">View Lookbook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <section class="container py-5 my-3" id="categories">
+    <div class="text-center mb-5">
+      <h2 class="display-serif display-5">Shop by Category</h2>
+      <p class="text-muted">Carefully curated styles designed for every modern wardrobe context</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="category-box">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop" alt="Womenswear">
+          <div class="category-content">
+            <h4 class="display-serif mb-1">Womenswear</h4>
+            <a href="#" class="text-decoration-none text-uppercase small tracking-wide text-dark fw-bold">Discover &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-box">
+          <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=600&auto=format&fit=crop" alt="Menswear">
+          <div class="category-content">
+            <h4 class="display-serif mb-1">Menswear</h4>
+            <a href="#" class="text-decoration-none text-uppercase small tracking-wide text-dark fw-bold">Discover &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-box">
+          <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=600&auto=format&fit=crop" alt="Accessories">
+          <div class="category-content">
+            <h4 class="display-serif mb-1">Accessories</h4>
+            <a href="#" class="text-decoration-none text-uppercase small tracking-wide text-dark fw-bold">Discover &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5 border-top" id="trending">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-5">
+      <div class="text-center text-md-start">
+        <h2 class="display-serif display-5 mb-1">The Weekly Edit</h2>
+        <p class="text-muted mb-0">High-demand seasonal essentials moving fast</p>
+      </div>
+      <div class="mt-3 mt-md-0">
+        <a href="#" class="btn btn-custom">View All Collection</a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <span class="product-badge">New</span>
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=500&auto=format&fit=crop" class="w-100" alt="Product">
+            <div class="product-actions">
+              <a href="#" class="action-btn"><i class="bi bi-bag"></i></a>
+              <a href="#" class="action-btn"><i class="bi bi-heart"></i></a>
+            </div>
+          </div>
+          <div class="pt-3 text-center">
+            <h6 class="mb-1 fw-normal"><a href="#" class="text-dark text-decoration-none">Linen Summer Dress</a></h6>
+            <span class="text-muted">LKR 6,500</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=500&auto=format&fit=crop" class="w-100" alt="Product">
+            <div class="product-actions">
+              <a href="#" class="action-btn"><i class="bi bi-bag"></i></a>
+              <a href="#" class="action-btn"><i class="bi bi-heart"></i></a>
+            </div>
+          </div>
+          <div class="pt-3 text-center">
+            <h6 class="mb-1 fw-normal"><a href="#" class="text-dark text-decoration-none">Premium Slim Fit Blazer</a></h6>
+            <span class="text-muted">LKR 14,800</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <span class="product-badge">Sale</span>
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&auto=format&fit=crop" class="w-100" alt="Product">
+            <div class="product-actions">
+              <a href="#" class="action-btn"><i class="bi bi-bag"></i></a>
+              <a href="#" class="action-btn"><i class="bi bi-heart"></i></a>
+            </div>
+          </div>
+          <div class="pt-3 text-center">
+            <h6 class="mb-1 fw-normal"><a href="#" class="text-dark text-decoration-none">Classic Knit Crewneck</a></h6>
+            <span class="text-muted"><del class="text-danger me-2">LKR 7,500</del> LKR 5,200</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=500&auto=format&fit=crop" class="w-100" alt="Product">
+            <div class="product-actions">
+              <a href="#" class="action-btn"><i class="bi bi-bag"></i></a>
+              <a href="#" class="action-btn"><i class="bi bi-heart"></i></a>
+            </div>
+          </div>
+          <div class="pt-3 text-center">
+            <h6 class="mb-1 fw-normal"><a href="#" class="text-dark text-decoration-none">Minimalist Canvas Sneakers</a></h6>
+            <span class="text-muted">LKR 9,200</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-banner my-5" id="promo">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 shadow" alt="Promo Material">
+        </div>
+        <div class="col-md-6 text-center text-md-start">
+          <span class="text-uppercase tracking-widest text-muted small" style="letter-spacing: 2px;">The Eco Initiative</span>
+          <h2 class="display-4 display-serif my-3">Sustainably Sourced, Beautifully Formed</h2>
+          <p class="text-muted lead mb-4">We intentionally work exclusively alongside organic cotton collectives and reliable ethical manufacturing workshops across Sri Lanka to design foundational luxury essentials meant to last a lifetime.</p>
+          <a href="#" class="btn btn-custom">Read Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-4 border-top border-bottom text-center">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <i class="bi bi-truck fs-3 mb-2 d-block"></i>
+        <h6>Fast Island-wide Delivery</h6>
+        <p class="text-muted small mb-0">Delivered reliably within 2-4 standard business days</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-arrow-left-right fs-3 mb-2 d-block"></i>
+        <h6>7-Day Hassle Free Return Policy</h6>
+        <p class="text-muted small mb-0">Simply return items back for a fluid sizing exchange</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-shield-check fs-3 mb-2 d-block"></i>
+        <h6>100% Secured Payments</h6>
+        <p class="text-muted small mb-0">Safely complete purchases with mastercard, visa or cash</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-5 mt-5">
+    <div class="container py-3">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="fs-4">VOGUE</h5>
+          <p class="small pe-md-4">A modern retail house curating structural everyday staples designed carefully with premium organic textiles.</p>
