@@ -1,6 +1,6 @@
 Live Demo 
 
-https://rukshana-engineer.github.io/fashion-store-frontend/
+https://rukshana-roshan.github.io/fashion-store-frontend/
 ---
 
 # README — fashion-store-frontend
@@ -29,7 +29,7 @@ A stylish e-commerce fashion store frontend UI.
 
 ## 🚀 Run Locally
 ```bash
-git clone https://github.com/rukshana-engineer/fashion-store-frontend.git
+git clone https://github.com/rukshana-roshan/fashion-store-frontend.git
 open index.html
 
 ---
